@@ -12,7 +12,7 @@ export default function Home() {
         </p>
 
         <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
-          Hi, I&apos;m Pratik
+          Hi, I&apos;m Manjil
         </h1>
 
         <p className="max-w-2xl text-lg text-slate-300">
@@ -28,7 +28,7 @@ export default function Home() {
       </section>
 
 
-      
+
 {/* SKILLS SECTION */}
 <section className="mx-auto max-w-6xl px-6 py-24">
 

@@ -1,6 +1,9 @@
 import Button from "@/components/button";
+import ProjectCard from "@/components/project-card";
 import SkillCard from "@/components/skill-card";
+import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
+
 
 export default function Home() {
   return (
@@ -55,8 +58,34 @@ export default function Home() {
 </section>
 
 
+{/* projects section */}
 
+<section className="mx-auto max-w-6xl px-6 py-24">
 
+  <div className="mb-12 flex items-center justify-between">
+
+    <h2 className="text-4xl font-bold">
+      Featured Projects
+    </h2>
+
+  </div>
+
+  <div className="grid gap-8 md:grid-cols-2">
+
+    {projects.slice(0, 2).map((project) => (
+      <ProjectCard
+        key={project.title}
+        title={project.title}
+        description={project.description}
+        tech={project.tech}
+        github={project.github}
+        demo={project.demo}
+      />
+    ))}
+
+  </div>
+
+</section>
 
 
     </main>

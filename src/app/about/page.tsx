@@ -2,6 +2,8 @@ export default function AboutPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-24">
 
+{/* section about me  */}
+
       <h1 className="mb-10 text-5xl font-bold">
         About Me
       </h1>
@@ -26,7 +28,7 @@ export default function AboutPage() {
 
       </div>
 
-
+{/* section journey */}
 <section className="mt-20">
 
   <h2 className="mb-8 text-3xl font-bold">

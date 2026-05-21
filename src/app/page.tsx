@@ -1,4 +1,6 @@
 import Button from "@/components/button";
+import SkillCard from "@/components/skill-card";
+import { skills } from "@/data/skills";
 
 export default function Home() {
   return (
@@ -30,6 +32,8 @@ export default function Home() {
 
 
 {/* SKILLS SECTION */}
+
+
 <section className="mx-auto max-w-6xl px-6 py-24">
 
   <h2 className="mb-12 text-center text-4xl font-bold">
@@ -38,39 +42,19 @@ export default function Home() {
 
   <div className="grid gap-6 md:grid-cols-3">
 
-    <div className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-      <h3 className="mb-4 text-2xl font-semibold">
-        Frontend
-      </h3>
-
-      <p className="text-slate-300">
-        Next.js, React, Tailwind CSS, TypeScript
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-      <h3 className="mb-4 text-2xl font-semibold">
-        Backend
-      </h3>
-
-      <p className="text-slate-300">
-        Node.js, Express.js, API Routes
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-      <h3 className="mb-4 text-2xl font-semibold">
-        Database
-      </h3>
-
-      <p className="text-slate-300">
-        PostgreSQL, Prisma ORM, Neon
-      </p>
-    </div>
+    {skills.map((skill) => (
+      <SkillCard
+        key={skill.title}
+        title={skill.title}
+        description={skill.description}
+      />
+    ))}
 
   </div>
 
 </section>
+
+
 
 
 

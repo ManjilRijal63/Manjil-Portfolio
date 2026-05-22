@@ -29,7 +29,7 @@ export default function AboutPage() {
       </div>
 
 {/* section journey */}
-<section className="mt-20">
+<section className="mt-20 border-t border-white/10">
 
   <h2 className="mb-8 text-3xl font-bold">
     Journey

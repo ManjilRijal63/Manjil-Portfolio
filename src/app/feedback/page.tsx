@@ -31,7 +31,7 @@ export default async function FeedbackPage() {
         <FeedbackForm />
       </div>
 
-      <section>
+      <section className="border-t border-white/10">
 
         <div className="mb-8">
 

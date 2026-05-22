@@ -9,7 +9,7 @@ export default function Navbar() {
           Manjil
         </h1>
 
-        <div className="flex gap-6 text-sm">
+        <div className="flex gap-6 text-sm  transition hover:text-blue-400">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/projects">Projects</Link>

@@ -3,7 +3,7 @@ import ProjectCard from "@/components/project-card";
 import SkillCard from "@/components/skill-card";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
           Full Stack Developer
         </p>
 
-        <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
+        <h1 className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-6xl font-bold text-transparent md:text-8xl">
           Hi, I&apos;m Manjil
         </h1>
 
@@ -32,63 +32,57 @@ export default function Home() {
           {/* <Button text="View Projects" />
           <Button text="Contact Me" /> */}
         </div>
+      </section>
+      {/* SKILLS SECTION */}
+      <section className="mx-auto max-w-6xl px-6 py-24 border-t border-white/10">
+
+        <h2 className="mb-12 text-center text-4xl font-bold">
+          Skills
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-3">
+
+          {skills.map((skill) => (
+            <SkillCard
+              key={skill.title}
+              title={skill.title}
+              description={skill.description}
+            />
+          ))}
+
+        </div>
 
       </section>
 
 
+      {/* projects section */}
 
-{/* SKILLS SECTION */}
+      <section className="mx-auto max-w-6xl px-6 py-24 border-t border-white/10">
 
+        <div className="mb-12 flex items-center justify-between">
 
-<section className="mx-auto max-w-6xl px-6 py-24">
+          <h2 className="text-4xl font-bold">
+            Featured Projects
+          </h2>
 
-  <h2 className="mb-12 text-center text-4xl font-bold">
-    Skills
-  </h2>
+        </div>
 
-  <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2">
 
-    {skills.map((skill) => (
-      <SkillCard
-        key={skill.title}
-        title={skill.title}
-        description={skill.description}
-      />
-    ))}
+          {projects.slice(0, 2).map((project) => (
+            <ProjectCard
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              tech={project.tech}
+              github={project.github}
+              demo={project.demo}
+            />
+          ))}
 
-  </div>
+        </div>
 
-</section>
-
-
-{/* projects section */}
-
-<section className="mx-auto max-w-6xl px-6 py-24">
-
-  <div className="mb-12 flex items-center justify-between">
-
-    <h2 className="text-4xl font-bold">
-      Featured Projects
-    </h2>
-
-  </div>
-
-  <div className="grid gap-8 md:grid-cols-2">
-
-    {projects.slice(0, 2).map((project) => (
-      <ProjectCard
-        key={project.title}
-        title={project.title}
-        description={project.description}
-        tech={project.tech}
-        github={project.github}
-        demo={project.demo}
-      />
-    ))}
-
-  </div>
-
-</section>
+      </section>
 
 
     </main>

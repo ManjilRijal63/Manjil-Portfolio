@@ -1,79 +1,69 @@
-"use client";
+import FeedbackCard from "@/components/feedback-card";
+import FeedbackForm from "@/components/feedback-form";
 
-import { useState } from "react";
+import { prisma } from "@/lib/prisma";
 
-export default function FeedbackPage() {
+export default async function FeedbackPage() {
 
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-
-  async function handleSubmit(
-    e: React.FormEvent<HTMLFormElement>
-  ) {
-    e.preventDefault();
-
-    try {
-
-      const response = await fetch("/api/feedback", {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify({
-          name,
-          message,
-        }),
-      });
-
-      if (response.ok) {
-        alert("Feedback submitted!");
-
-        setName("");
-        setMessage("");
-      }
-
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const feedbacks = await prisma.feedback.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    take: 5,
+  });
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-24">
 
-      <h1 className="mb-12 text-center text-5xl font-bold">
-        Feedback
-      </h1>
+      <div className="mb-16 text-center">
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-6 rounded-2xl border border-white/10 bg-slate-900 p-8"
-      >
+        <h1 className="mb-4 text-5xl font-bold">
+          Feedback
+        </h1>
 
-        <input
-          type="text"
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-xl border border-white/10 bg-slate-950 p-4 outline-none"
-        />
+        <p className="text-slate-400">
+          Share your thoughts, suggestions, or experience.
+        </p>
 
-        <textarea
-          placeholder="Your feedback"
-          rows={5}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="w-full rounded-xl border border-white/10 bg-slate-950 p-4 outline-none"
-        />
+      </div>
 
-        <button
-          className="rounded-xl bg-blue-600 px-6 py-3 font-semibold"
-        >
-          Submit Feedback
-        </button>
+      <div className="mb-16">
+        <FeedbackForm />
+      </div>
 
-      </form>
+      <section>
+
+        <div className="mb-8">
+
+          <h2 className="text-3xl font-semibold">
+            Submitted Feedbacks
+          </h2>
+
+          <p className="mt-2 text-slate-400">
+            Latest feedback from visitors.
+          </p>
+
+        </div>
+
+        <div className="space-y-6">
+
+          {feedbacks.length > 0 ? (
+            feedbacks.map((feedback) => (
+              <FeedbackCard
+                key={feedback.id}
+                name={feedback.name}
+                message={feedback.message}
+              />
+            ))
+          ) : (
+            <p className="text-slate-400">
+              No feedback submitted yet.
+            </p>
+          )}
+
+        </div>
+
+      </section>
 
     </main>
   );

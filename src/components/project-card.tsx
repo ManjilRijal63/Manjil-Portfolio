@@ -1,3 +1,12 @@
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import { Button } from "@/components/ui/button";
+
 type ProjectCardProps = {
   title: string;
   description: string;
@@ -14,49 +23,51 @@ export default function ProjectCard({
   demo,
 }: ProjectCardProps) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-slate-900 p-6 transition duration-300 hover:-translate-y-2">
+    <Card className="border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2">
 
-      <h2 className="mb-4 text-2xl font-bold">
-        {title}
-      </h2>
+      <CardHeader>
+        <CardTitle className="text-3xl font-bold tracking-tight text-white">
+          {title}
+        </CardTitle>
+      </CardHeader>
 
-      <p className="mb-6 text-slate-300">
-        {description}
-      </p>
+      <CardContent>
 
-      <div className="mb-6 flex flex-wrap gap-2">
+        <p className="mb-6 text-slate-300">
+          {description}
+        </p>
 
-        {tech.map((item) => (
-          <span
-            key={item}
-            className="rounded-full bg-blue-600/20 px-3 py-1 text-sm text-blue-300"
-          >
-            {item}
-          </span>
-        ))}
+        <div className="mb-6 flex flex-wrap gap-2">
 
-      </div>
+          {tech.map((item) => (
+            <span
+              key={item}
+              className="rounded-full bg-blue-600/20 px-3 py-1 text-sm text-blue-300"
+            >
+              {item}
+            </span>
+          ))}
 
-      <div className="flex gap-4">
+        </div>
 
-        <a
-          href={github}
-          target="_blank"
-          className="rounded-xl bg-white px-4 py-2 text-black"
-        >
-          GitHub
-        </a>
+        <div className="flex gap-4">
 
-        <a
-          href={demo}
-          target="_blank"
-          className="rounded-xl border border-white/20 px-4 py-2"
-        >
-          Live Demo
-        </a>
+          <Button asChild>
+            <a href={github} target="_blank">
+              GitHub
+            </a>
+          </Button>
 
-      </div>
+          <Button variant="outline" asChild>
+            <a href={demo} target="_blank">
+              Demo
+            </a>
+          </Button>
 
-    </div>
+        </div>
+
+      </CardContent>
+
+    </Card>
   );
 }

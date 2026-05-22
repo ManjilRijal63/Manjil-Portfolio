@@ -1,9 +1,9 @@
-import Button from "@/components/button";
+// import Button from "@/components/button";
 import ProjectCard from "@/components/project-card";
 import SkillCard from "@/components/skill-card";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
-
+import {Button} from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -26,8 +26,11 @@ export default function Home() {
         </p>
 
         <div className="mt-8 flex gap-4">
-          <Button text="View Projects" />
-          <Button text="Contact Me" />
+          <Button>View Projects</Button>
+          <Button>Contact Me</Button>
+
+          {/* <Button text="View Projects" />
+          <Button text="Contact Me" /> */}
         </div>
 
       </section>

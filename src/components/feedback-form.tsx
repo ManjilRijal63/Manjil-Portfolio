@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 export default function FeedbackForm() {
 
@@ -48,7 +51,7 @@ export default function FeedbackForm() {
       className="mb-16 space-y-6 rounded-2xl border border-white/10 bg-slate-900 p-8"
     >
 
-      <input
+      <Input
         type="text"
         placeholder="Your name"
         value={name}
@@ -56,7 +59,7 @@ export default function FeedbackForm() {
         className="w-full rounded-xl border border-white/10 bg-slate-950 p-4 outline-none"
       />
 
-      <textarea
+      <Textarea
         placeholder="Your feedback"
         rows={5}
         value={message}
@@ -64,11 +67,9 @@ export default function FeedbackForm() {
         className="w-full rounded-xl border border-white/10 bg-slate-950 p-4 outline-none"
       />
 
-      <button
-        className="rounded-xl bg-blue-600 px-6 py-3 font-semibold"
-      >
-        Submit Feedback
-      </button>
+      <Button>Submit Feedback</Button>
+       
+      
 
     </form>
   );

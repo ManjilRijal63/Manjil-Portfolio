@@ -4,6 +4,7 @@ import SkillCard from "@/components/skill-card";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -26,12 +27,20 @@ export default function Home() {
         </p>
 
         <div className="mt-8 flex gap-4">
-          <Button>View Projects</Button>
-          <Button>Contact Me</Button>
 
-          {/* <Button text="View Projects" />
-          <Button text="Contact Me" /> */}
-        </div>
+  <Link href="/projects">
+    <Button className="cursor-pointer transition hover:bg-blue-500">
+      View Projects
+    </Button>
+  </Link>
+
+  <Link href="/feedback">
+    <Button className="cursor-pointer transition hover:bg-blue-500">
+      Give Feedback
+    </Button>
+  </Link>
+
+</div>
       </section>
       {/* SKILLS SECTION */}
       <section className="mx-auto max-w-6xl px-6 py-24 border-t border-white/10">
